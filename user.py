@@ -5,6 +5,12 @@ class User:
 
     user_list = []
 
+    def save_user(self):
+        '''
+        Method that saves user instances to the user list.
+        '''
+        User.user_list.append(self)
+
     def __init__(self, username, password):
         self.username = username
         self.password = password
