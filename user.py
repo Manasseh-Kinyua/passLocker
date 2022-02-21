@@ -17,6 +17,13 @@ class User:
         '''
         User.user_list.remove(self)
 
+    @classmethod
+    def display_users(cls):
+        '''
+        Method that returns the user list.
+        '''
+        return cls.user_list
+
     def __init__(self, username, password):
         self.username = username
         self.password = password
