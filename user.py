@@ -43,6 +43,12 @@ class Credentials:
         '''
         Credentials.credentials_list.append(self)
 
+    def delete_credential(self):
+        '''
+        Method that removes a credentials object from the credentials list
+        '''
+        Credentials.credentials_list.remove(self)
+
     def __init__(self, account, userName, password):
         self.account = account
         self.userName = userName
