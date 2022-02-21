@@ -39,5 +39,5 @@ class Credentials:
 
     def __init__(self, account, userName, password):
         self.account = account
-        self.userNmae = username
+        self.userName = userName
         self.password = password
