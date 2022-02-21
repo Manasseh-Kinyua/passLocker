@@ -55,7 +55,18 @@ def display_credential():
     Function to display the saved user credentials.
     '''
     return Credentials.display_credentials()
-    
+
+def del_credential(credentials):
+    '''
+    Functon to delete a credentials object.
+    '''
+    credentials.delete_credential()
+
+def find_credential(account):
+    '''
+    Function that checks if a credential object is in the credentials class.
+    '''
+    return Credentials.find_by_account(account)
 
 
 
