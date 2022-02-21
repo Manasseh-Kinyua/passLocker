@@ -83,6 +83,11 @@ class Credentials:
         '''
         return cls.credentials_list
 
+    @classmethod
+    def copy_password(cls, account):
+        found_credential = Credentials.find_by_account(account)
+        pyperclip.copy(found_credential.password)
+
     def generatePassword(stringLength = 8):
         '''
         Method to generate a random 8-character password for the user.
