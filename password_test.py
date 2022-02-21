@@ -79,6 +79,16 @@ class TestCredentials(unittest.TestCase):
         '''
         test_init test case to test if the object is initialized properly.
         '''
+        self.assertEqual(self.new_credential.account, 'Gmail')
+        self.assertEqual(self.new_credential.userName, 'Nasseh_Kinyua')
+        self.assertEqual(self.new_credential.password, 'nasseh73')
+
+    def test_save_credential(self):
+        '''
+        Test case to check if new instances of the credentials object are added to the credentials list.
+        '''
+        self.new_credential.save_credential()
+        self.assertEqual(len(Credentials.credentials_list),1)
 
 
 

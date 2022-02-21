@@ -37,6 +37,12 @@ class Credentials:
 
     credentials_list = []
 
+    def save_credential(self):
+        '''
+        Method to add new credential objects to the credentials list.
+        '''
+        Credentials.credentials_list.append(self)
+
     def __init__(self, account, userName, password):
         self.account = account
         self.userName = userName
