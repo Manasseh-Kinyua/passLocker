@@ -106,23 +106,92 @@ def main():
                 print("8" * 85)
 
     elif short_code == 'h1':
-        
+        print("*" * 50)
+        print("Please ENTER username and password to login...")
+        print("*" * 50)
+        username = input("Enter username:")
+        password = input("Enter password:")
+        login = login_user(username,password)
+        if login_user == login:
+            print(f"Hello {username}, Welcome to Pass Locker")
+            print('\n')
 
+    while True:
+        print("Please use the following short codes.\n crc -> To creatte new credentials.\n dc -> To display credentials.\n fc -> To find credentials.\n gp -> To generate new credentials.\n d -> To delete credentials. \n ex -> To exit the application.\n")
+        short_code = input().lower().strip()
+        if short_code == 'crc':
+            print("Create new credentials")
+            print("." * 20)
+            print("Enter Account Name....")
+            account = input().lower()
+            print("Enter the account username")
+            userName = input()
 
+            while True:
+                print("Choose: em -> to enter your own password.\n ap -> To have a password generated for you.\n")
+                choice = input().lower().strip()
+                if choice == 'em':
+                    password = input("Please enter your password: \n")
+                    break
+                elif choice == 'ap':
+                    password = generate_password()
+                    break
+                else:
+                    print("Invalid choice....PLease try again with the correct choice.")
+                    save_credentials(create_new_credential(account, userName, password))
+                    print('\n')
+                    print(f"Credentials for {account} have been created")
+                    print('\n')
 
+        elif short_code == 'dc':
+            if display_credential():
+                print("Here is a list of your credentials:")
+                print("*" * 30)
+                print("_" * 30)
 
+                for credential in display_credential():
+                    print(f"Account: {credential.account}\n UserName: {credential.userName}\n password: {credential.password}")
+                    print("_" * 30)
+                print("*" * 30)
+            else:
+                print("You do not have aby credentials saved yet.....")
 
+        elif short_code == 'fc':
+            print("Please enter the account you want to find")
+            search_acc = input().lower()
+            if find_credential(search_acc):
+                search_credential = find_credential(search_acc)
+                print(f"Account: {search_credential.account}")
+                print("-" * 50)
+                print(f"userName: {search_credential.userName}\n Password: {search_credential.password}")
+                print("-" * 50)
+            else:
+                print("The name you entered is not an account name in available credentials")
+                print('\n')
 
+        elif short_code == 'd':
+            print("Enter the Account for the credential you want to delete")
+            search_acc = input().lower()
+            if find_credential(search_acc):
+                search_credential = find_credential(search_acc)
+                search_credential.del_credential()
+                print('\n')
+                print(f"{search_credential.account} has been successfully deleted!")
+                print('\n')
+            else:
+                print("The name you entered does not match any in our list")
 
+        elif short_code == 'gp':
+            password = generate_password()
+            print(f"{password} Generated successfully. Proceed to use it.")
+        elif short_code == 'ex':
+            print("Thank you for using Pass Locker....See you another time...BYE.....")
+            break
+        else:
+            print("Wrong entry....PLease use the short codes provided")
 
-
-
-
-
-
-
-
-
+    else:
+        print("Please always enter a valid input in order to use the application.")
 
 if __name__ == '__main__':
     main()
