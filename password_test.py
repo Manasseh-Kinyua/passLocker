@@ -4,7 +4,7 @@ from user import Credentials
 
 class TestUser(unittest.TestCase):
     '''
-    Test class that defines test cases for the user and credentials classes behaviours.
+    Test class that defines test cases for the user and class behaviours.
     Args:
         unittest.TestCase: TestCase class that helps in creating test cases.
     '''
@@ -60,6 +60,25 @@ class TestUser(unittest.TestCase):
         Return a list of all users saved.
         '''
         self.assertEqual(User.display_users(), User.user_list)
+
+
+class TestCredentials(unittest.TestCase):
+    '''
+    Test class that defines test cases for the credentials class behaviours.
+    Args:
+        unittest.TestCase: TestCase class that helps in creating test cases.
+    '''
+
+    def setUp(self):
+        '''
+        Set up method to run before each test cases.
+        '''
+        self.new_credential = Credentials('Gmail', 'Nasseh_Kinyua', 'nasseh73')
+
+    def test_init(self):
+        '''
+        test_init test case to test if the object is initialized properly.
+        '''
 
 
 
