@@ -68,6 +68,19 @@ def find_credential(account):
     '''
     return Credentials.find_by_account(account)
 
+def generate_password():
+    '''
+    Functionthat generates an aotomatic password for the user if they choose that option.
+    '''
+    generated_pass = Credentials.generatePassword()
+    return generated_pass
+
+def copy_password(account):
+    '''
+    Function that copies a user's password to the clipboard.
+    '''
+    return Credentials.copy_password(account)
+
 
 
 
