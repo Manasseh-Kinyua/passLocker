@@ -1,3 +1,7 @@
+import random
+import pyperclip
+import string
+
 class User:
     '''
     Class that generates new instances of a user.
@@ -78,6 +82,13 @@ class Credentials:
         method that returns the credentials list
         '''
         return cls.credentials_list
+
+    def generatePassword(stringLength = 8):
+        '''
+        Method to generate a random 8-character password for the user.
+        '''
+        password = string.ascii_uppercase + string.ascii_lowercase +string.digits + "~!@#$%^&*"
+        return ''.join(random.choice(password) for i in range(stringLength))
 
 
     def __init__(self, account, userName, password):
