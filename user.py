@@ -53,6 +53,16 @@ class Credentials:
         '''
         Credentials.credentials_list.remove(self)
 
+    def verify_user(cls, username, password):
+        '''
+        Method that verifies if a user exists in the user list.
+        '''
+        _user = ""
+        for user in User.user_list:
+            if(user.username == username and user.password == password):
+                _user == user.username
+        return _user
+
     @classmethod
     def find_by_account(cls, account):
         '''
