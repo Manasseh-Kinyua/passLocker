@@ -82,6 +82,31 @@ def copy_password(account):
     return Credentials.copy_password(account)
 
 
+def main():
+    print("Hello, Welocome to Pass Locker. We are a store for your Accounts Passwords.....\n Please ENTER one of the following short codes to proceed.\n 'cr' -> Create a New Account. \n 'h1' -> Already have an Account. \n")
+    short_code = input().lower().strip()
+    if short_code == 'cr':
+        print("Please Sign Up")
+        print('*' * 50)
+        username = input("Enter your username: ")
+
+        while True:
+            print("Please USE one of the followig to enter your own password or to have one selected for you.\n 'em' -> To enter own password.\n 'ap' -> To have an automatic password generated for you.\n")
+            choice = input().lower().strip()
+            if choice == 'em':
+                password = input("Please enter your password; ")
+                break
+            elif choice == 'ap':
+                password = generate_password()
+            else:
+                print("Invalid passwordchoice......Please try again with a correct choice.")
+                save_users(create_new_user(username, password))
+                print("8" * 85)
+                print(f"Hello {username}, You have created an account successfully.\n Your password id : {password}")
+                print("8" * 85)
+
+    elif short_code == 'h1':
+        
 
 
 
@@ -96,5 +121,8 @@ def copy_password(account):
 
 
 
-# if __name__ == '__main__':
-#     main()
+
+
+
+if __name__ == '__main__':
+    main()
