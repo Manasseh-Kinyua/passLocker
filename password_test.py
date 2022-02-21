@@ -120,6 +120,13 @@ class TestCredentials(unittest.TestCase):
         '''
         Test case to verify that we can find an credentials object using its acount name.
         '''
+        self.new_credential.save_credential()
+        test_credential = Credentials('Facebook', 'GeorgeKiny', 'xyz12345')
+        test_credential.save_credential()
+
+        found_credential = Credentials.find_by_account('Facebook')
+        self.assertEqual(found_credential.account, test_credential.account)
+
 
 
 
