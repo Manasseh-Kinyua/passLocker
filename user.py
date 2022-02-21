@@ -11,6 +11,12 @@ class User:
         '''
         User.user_list.append(self)
 
+    def delete_user(self):
+        '''
+        Method that removes a user instance from the user list.
+        '''
+        User.user_list.remove(self)
+
     def __init__(self, username, password):
         self.username = username
         self.password = password
