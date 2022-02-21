@@ -138,6 +138,12 @@ class TestCredentials(unittest.TestCase):
         credential_exists = Credentials.credential_exist('Facebook')
         self.assertTrue(credential_exists)
 
+    def test_display_all_credentials(self):
+        '''
+        Return a list of all credentials saved.
+        '''
+        self.assertEqual(Credentials.display_credentials(), Credentials.credentials_list)
+
 
 
 
